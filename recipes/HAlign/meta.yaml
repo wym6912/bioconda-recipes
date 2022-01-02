@@ -1,0 +1,27 @@
+{% set version = "3.0.0_rc1" %}
+
+package:
+    name: halign
+    version: {{ version }}
+
+source:
+    git_url: https://github.com/malabz/HAlign-3.git
+    git_rev: v{{ version }}
+    git_depth: 1
+
+build:
+    num: 1
+
+requirements:
+    build:
+        - maven
+        - openjdk >=11, <12
+    run: 
+        - openjdk >=11, <12
+        - coreutils
+
+about:
+    home: https://github.com/malabz/HAlign-3
+    license: MIT
+    summary: Multiple Sequence Alignment with Suffix Tree
+    description: HAlign is a cross-platform program that performs multiple sequence alignment based on the centre star strategy. Here, we present two major updates of HAlign 3 which help to improve the time efficiency and the alignment quality. 1) The left-child right-sibling is replaced by K-ary tree to build the suffix tree to reach a higher identical substring searching efficiency at only the cost of a few extra space; 2) a combined global optimization algorithm involving directed acyclic graphs and dynamic programming is adopted to screen out the unsatisfactory identical substrings found with suffix trees. These improvements make HAlign 3 the only program which can align 1 million SARS-CoV-2 sequences fast and accurately.
